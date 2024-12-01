@@ -81,28 +81,24 @@ def number_guess():
             
             attempts -= 1
         except ValueError:
-            print("Please enter a valid number.")
+            print("\033[1m\033[38;2;255;90;90mPlease enter a valid number.\033[0m")
     
     #loser message
     print(f"\nWelp... That's it... better luck next time! btw the number was {guess_number}")
 
 def credits():
-    print("\033[48;2;91;206;250m\033[38;2;91;206;250m___")
-    print("\033[48;2;245;169;184m\033[38;2;245;169;184m___")
-    print("\033[48;2;255;255;255m\033[38;2;255;255;255m___")
-    print("\033[48;2;245;169;184m\033[38;2;245;169;184m___")
-    print("\033[48;2;91;206;250m\033[38;2;91;206;250m___")
-    print("\033[1m\033[38;2;0;0;0m\033[48;2;245;169;211m")
-    print("\n=== About / Credits ===")
-    print("\033[0m")
+    print("\033[48;2;91;206;250m\033[38;2;91;206;250m__\033[0m")
+    print("\033[48;2;245;169;184m\033[38;2;245;169;184m__\033[0m")
+    print("\033[48;2;255;255;255m\033[38;2;255;255;255m__\033[0m")
+    print("\033[48;2;245;169;184m\033[38;2;245;169;184m__\033[0m")
+    print("\033[48;2;91;206;250m\033[38;2;91;206;250m__\033[0m")
+    print("\n\n\033[1m\033[38;2;0;0;0m\033[48;2;245;169;211m=== About / Credits ===\033[0m\n")
     print("This game is made by Ellie in their basement on the hard cold floor. LMAO!")
     print("IG: https://www.instagram.com/evixosity/\n")
     input("Press Enter to return to the main menu.")
 
 def license():
-    print("\033[1m\033[38;2;255;190;0m\033[48;2;145;61;184m")
-    print("\n=== License ===")
-    print("\033[0m")
+    print("\033[1m\033[38;2;255;190;0m\033[48;2;145;61;184m\n\n=== License ===\033[0m\n")
     print("MIT License\n")
     print("Copyright (c) 2024 Ellie\n")
     print("Permission is hereby granted, free of charge, to any person obtaining a copy")
@@ -124,9 +120,7 @@ def license():
 
 def main_menu():
     while True:
-        print("\033[0m\033[38;2;245;169;215m")  #color to pink
-        print("Welcome to Guess the Number mini-game!")
-        print("\033[0m")  #color reset
+        print("\n\n\033[0m\033[38;2;245;169;215mWelcome to Guess the Number mini-game!\033[0m\n\n")    #color to pink then reset
         print("1. Start new game!")
         print("2. About / Credits")
         print("3. License")
@@ -144,6 +138,6 @@ def main_menu():
             print("Thanks for playing! Good luck on your next journey, Adventurer!")
             break
         else:
-            print("Invalid choice. Please try again.")
+            print("\033[1m\033[38;2;255;90;90mInvalid choice. Please try again.\033[0m")
 
 main_menu()
