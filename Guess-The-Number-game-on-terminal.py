@@ -1,3 +1,5 @@
+#Increase the value of how many hours spent trying to do and understand ANSI codes: 4
+
 import random
 import webbrowser
 import time
@@ -8,30 +10,29 @@ import sys
 try:
     import pyautogui
 except ImportError:
-    install_choice = input("The 'pyautogui' module is required for this game. Would you like to install it? (yes[y]/no[n]): ").strip().lower()
+    install_choice = input("\033[38;2;92;255;168mThe 'pyautogui' module is required for this game. Would you like to install it?\033[0m (yes[y]/no[n]): ").strip().lower()
     if install_choice in ("yes", "y"):
         try:
             subprocess.check_call([sys.executable, "-m", "pip", "install", "pyautogui"])
             import pyautogui
         except Exception as e:
-            print(f"Failed to install 'pyautogui'. Please install it manually.\nError: {e}")
+            print(f"\033[1m\033[38;2;255;90;90m""Failed to install 'pyautogui'. Please install it manually.\nError: {e}""\033[0m")
             exit()
     else:
-        print("Cannot proceed without 'pyautogui'. Exiting the game.")
+        print("\033[38;2;255;136;25mCannot proceed without 'pyautogui'. Exiting the game.\033[0m")
         exit()
 
 def number_guess():
-    print("\n=== Start New Game ===")
-    print("I think of number from 1 to 100. Can you guess it? My great Adventurer!")
+    print("\n\033[38;2;208;133;255m=== Start New Game ===\033[0m")
+    print("\033[38;2;102;255;140mI think of number from 1 to 100. Can you guess it? My great Adventurer!\033[0m")
     
     guess_number = random.randint(1, 100)
     try:
-        attempts = int(input("How many attempts would you like?: "))
+        attempts = int(input("\033[38;2;112;210;255mHow many attempts would you like?: \033[0m"))
         
         #messages based on the amount of attempts
         if attempts >= 10000:
-            print("\033[1m")  #bold text
-            print("MATE MY GRANDMA CAN GUESS IT IN 7 ATTEMPTS! WHAT THE HELL YOU NEED THAT MUCH ATTEMPTS?... WHY...? JUST WHY...?")
+            print("\033[1m\033[38;2;255;90;90mMATE MY GRANDMA CAN GUESS IT IN 7 ATTEMPTS! WHAT THE HELL YOU NEED THAT MUCH ATTEMPTS?... WHY...? JUST WHY...?")
             print("\033[0m")
         elif 41 <= attempts <= 9999:
             print("I think that is gonna make it too easy, mate!")
@@ -86,18 +87,49 @@ def number_guess():
     print(f"\nWelp... That's it... better luck next time! btw the number was {guess_number}")
 
 def credits():
+    print("\033[48;2;91;206;250m\033[38;2;91;206;250m___")
+    print("\033[48;2;245;169;184m\033[38;2;245;169;184m___")
+    print("\033[48;2;255;255;255m\033[38;2;255;255;255m___")
+    print("\033[48;2;245;169;184m\033[38;2;245;169;184m___")
+    print("\033[48;2;91;206;250m\033[38;2;91;206;250m___")
+    print("\033[1m\033[38;2;0;0;0m\033[48;2;245;169;211m")
     print("\n=== About / Credits ===")
+    print("\033[0m")
     print("This game is made by Ellie in their basement on the hard cold floor. LMAO!")
     print("IG: https://www.instagram.com/evixosity/\n")
     input("Press Enter to return to the main menu.")
 
+def license():
+    print("\033[1m\033[38;2;255;190;0m\033[48;2;145;61;184m")
+    print("\n=== License ===")
+    print("\033[0m")
+    print("\033[1m\033[38;2;255;90;90m""MIT License\n""\033[0m")
+    print("Copyright (c) 2024 Ellie\n")
+    print("Permission is hereby granted, free of charge, to any person obtaining a copy")
+    print("of this software and associated documentation files (the 'Software'), to deal")
+    print("in the Software without restriction, including without limitation the rights")
+    print("to use, copy, modify, merge, publish, distribute, sublicense, and/or sell")
+    print("copies of the Software, and to permit persons to whom the Software is")
+    print("furnished to do so, subject to the following conditions:\n")
+    print("The above copyright notice and this permission notice shall be included in all")
+    print("copies or substantial portions of the Software.\n")
+    print("THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR")
+    print("IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,")
+    print("FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE")
+    print("AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER")
+    print("LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,")
+    print("OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE")
+    print("SOFTWARE.")
+    input("\nPress Enter to return to the main menu.")
+
 def main_menu():
     while True:
-        print("\033[95m")  #color to pink
+        print("\033[0m\033[38;2;245;169;215m")  #color to pink
         print("Welcome to Guess the Number mini-game!")
         print("\033[0m")  #color reset
         print("1. Start new game!")
         print("2. About / Credits")
+        print("3. License")
         print("0. Exit the game")
 
         choice = input("Choose an option: ")
@@ -106,6 +138,8 @@ def main_menu():
             number_guess()
         elif choice == "2":
             credits()
+        elif choice == "3":
+            license()
         elif choice == "0":
             print("Thanks for playing! Good luck on your next journey, Adventurer!")
             break
