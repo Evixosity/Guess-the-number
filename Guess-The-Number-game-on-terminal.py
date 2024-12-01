@@ -62,7 +62,7 @@ def number_guess():
             time.sleep(3)
 
     except ValueError:
-        print("Invalid input. Defaulting to 7 attempts.")
+        print("\033[1m\033[38;2;255;90;90mInvalid input.\033[0m Defaulting to 7 attempts.")
         attempts = 7  #if invalud value, defaults back to 7
     
     time.sleep(0.5)
