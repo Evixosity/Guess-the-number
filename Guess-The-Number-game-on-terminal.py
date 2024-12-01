@@ -103,7 +103,7 @@ def license():
     print("\033[1m\033[38;2;255;190;0m\033[48;2;145;61;184m")
     print("\n=== License ===")
     print("\033[0m")
-    print("\033[1m\033[38;2;255;90;90m""MIT License\n""\033[0m")
+    print("MIT License\n")
     print("Copyright (c) 2024 Ellie\n")
     print("Permission is hereby granted, free of charge, to any person obtaining a copy")
     print("of this software and associated documentation files (the 'Software'), to deal")
